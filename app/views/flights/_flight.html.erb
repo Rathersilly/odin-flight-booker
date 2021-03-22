@@ -1,6 +1,6 @@
-<div class="flight" %>
+<%= link_to(flight_path(flight), class: "flight") do %>
   <%= content_tag(:div, "From: #{flight.from_airport.code} (#{flight.from_airport.name})") %>
   <%= content_tag(:div, "To: #{flight.to_airport.code} (#{flight.to_airport.name})") %>
   <%= content_tag(:div, "Start: #{flight.start}") %>
   <%= content_tag(:div, "Duration: #{flight.duration}") %>
-</div>
+<% end %>

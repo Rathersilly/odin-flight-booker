@@ -1,3 +1,24 @@
-<%# form_with %>
+<h1>Flights!</h1>
+<%= form_with(url: flights_path, method: :get, class: "flight_select") do |form| %>
+  <%= content_tag(:div, "From:") %>
+  <%= content_tag(:div, "To:") %>
+  <%= content_tag(:div, "Date:") %>
 
-<%# render @flights %>
+  <%= form.collection_select :from_airport, Airport.all, :id, :code %>
+  <%= form.collection_select :to_airport, Airport.all, :id, :code %>
+  <%= form.collection_select :start, @all_flights, :start, :start %>
+  <%= form.submit "Show flights" %>
+<% end %>
+
+<% if @flights %>
+  <h3>Matching flights:</h3>
+  <%= render @flights %>
+  <% if @flights.empty? %>
+    <p>(none)</p>
+  <% end %>
+<% end %>
+
+
+<h3>All flights</h3>
+<%= render @all_flights %>
+

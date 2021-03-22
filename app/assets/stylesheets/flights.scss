@@ -2,7 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.params {
+  float: right;
+  width: 25%;
+  margin: 10px;
+  padding: 10px;
+  border: 10px inset green;
+  border-radius: 5px;
+}
+.flight_select {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.flight_select > div {
+  grid-row-start: 1;
+}
+.flight_select > select {
+  grid-row-start: 2;
+}
+.flight_select > input {
+  grid-row-start: 2;
+}
+
+
+div {
+
+  display: block;
+  width: 60%;
+}
+
 .flight {
+  display: block;
+  width: 60%;
   margin: 20px;
   padding: 10px;
   border: 2px solid blue;
