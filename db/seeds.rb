@@ -30,3 +30,10 @@
                    start: DateTime.new(2021, mon, day, 6,0,0),
                    duration:  time)
   end
+
+  pas = Passenger.create!(name: "Bob Dobalina",
+                    email: "bob@example.com")
+  Booking.create!(passenger: pas,
+                  flight: Flight.first)
+
+  
