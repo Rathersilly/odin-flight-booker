@@ -1,2 +1,3 @@
 <h1>This flight!</h1>
 <%= render @flight %>
+<%= link_to "make a booking for this flight", new_booking_path(params: {flight: @flight.id}) %>

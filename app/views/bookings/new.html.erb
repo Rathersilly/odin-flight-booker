@@ -1,9 +1,19 @@
-<%= form_with model: Booking do |bform| %>
+<h3>Booking for:</h3>
+<%# render "flights/flight", locals: {flight: Flight.find(params[:flight])} %>
+<br>
+<%= form_with model: @booking do |bform| %>
+  <%= bform.hidden_field :flight_id, value: params[:flight] %>
 
 
-  <%= form_with model: Passenger do |pform| %>
 
-
+  <%= fields_for :passenger do |pform| %>
+    <%# pform.hidden_field :passenger_id, value: nil %>
+    <%= pform.label :name, "Name: " %>
+    <%= pform.text_field :name %>
+    <%= pform.label :email, "Email: " %>
+    <%= pform.text_field :email %>
   <% end %>
+  <%= bform.submit "Create booking" %>
+
 <% end %>
 
