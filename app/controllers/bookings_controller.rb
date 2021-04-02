@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+
   def new
     # new is for new instance of specific model
     # build is for creating a new instance withing an AR association (apparently)
@@ -18,9 +19,11 @@ class BookingsController < ApplicationController
     @passenger = Passenger.create(passenger_params)
     @booking = Booking.new(flight_id: booking_params[:flight_id],
                            passenger_id: @passenger.id)
+    @flight = Flight.find(@booking.flight_id)
 
     if @booking.save
       puts "SAVED"
+      PassengerMailer.with(passenger: @passenger, flight: @flight).welcome_email.deliver_later
       redirect_to root_url
       # redirect etc
     else

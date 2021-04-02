@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :bookings, :passengers
 
   root 'flights#index'
+  get '/test_email', to: 'passengers#test_email'
 end

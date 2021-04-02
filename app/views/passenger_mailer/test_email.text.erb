@@ -1,0 +1,10 @@
+    Welcome<%=  @passenger %>
+    You have booked a ticket
+    flight: <%= @flight%>
+    from: <%= @flight.from_airport.name %>
+    to: <%= @flight.to_airport.name %>
+    <br>
+    takeoff date/time: <%= @flight.start %>
+    flight duration: <%= @flight.duration %>
+    The flight's page is here: <%= @flight_url %>
+
